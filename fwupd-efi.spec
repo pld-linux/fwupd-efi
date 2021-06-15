@@ -21,7 +21,9 @@ BuildRequires:	xz
 Requires:	fwupd >= 1.6.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		efi_arch	%(echo %{_target_base_arch} | sed -e 's/i386/ia32/')
+%define		efi_arch	%(echo %{_target_base_arch} | sed -e 's/i386/ia32/;s/x86_64/x64/')
+
+%define		_enable_debug_packages	0
 
 %description
 fwupd is a project to allow updating device firmware, and this package
