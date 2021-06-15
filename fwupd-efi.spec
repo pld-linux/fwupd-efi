@@ -47,6 +47,12 @@ Plik programistyczny pakietu fwupd-efi.
 %prep
 %setup -q
 
+%ifarch x32
+# -m64 is needed to build x64 EFI
+%{__sed} -i -e "/^if host_cpu == 'x86_64'/,/^elif/ s/'-mno-red-zone',/& '-m64',/" efi/meson.build
+%{__sed} -i -e 's/args\.cc, /&"-m64", /' efi/generate_sbat.py
+%endif
+
 %build
 %meson build \
 	-Defi_sbat_distro_id="pld" \
