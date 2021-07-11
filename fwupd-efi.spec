@@ -6,7 +6,7 @@ Summary:	Firmware update EFI binaries
 Summary(pl.UTF-8):	Binaria EFI do uaktualniania firmware'u
 Name:		fwupd-efi
 Version:	1.0
-Release:	1
+Release:	2
 License:	LGPL v2+
 Group:		Base
 Source0:	https://people.freedesktop.org/~hughsient/releases/%{name}-%{version}.tar.xz
@@ -82,6 +82,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS COMMITMENT MAINTAINERS README.md
+%dir %{_libexecdir}/fwupd
+%dir %{_libexecdir}/fwupd/efi
 %{_libexecdir}/fwupd/efi/fwupd%{efi_arch}.efi
 %if %{with pesign}
 %{_libexecdir}/fwupd/efi/fwupd%{efi_arch}.efi.signed
