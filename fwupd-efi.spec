@@ -5,12 +5,12 @@
 Summary:	Firmware update EFI binaries
 Summary(pl.UTF-8):	Binaria EFI do uaktualniania firmware'u
 Name:		fwupd-efi
-Version:	1.2
+Version:	1.3
 Release:	1
 License:	LGPL v2+
 Group:		Base
 Source0:	https://people.freedesktop.org/~hughsient/releases/%{name}-%{version}.tar.xz
-# Source0-md5:	bb0ff8cb127d665e19e587701f6af3ed
+# Source0-md5:	e5502411ed850d18622f4e2d0b0ea1b4
 URL:		https://github.com/fwupd/fwupd-efi
 BuildRequires:	gnu-efi
 BuildRequires:	meson >= 0.53.0
