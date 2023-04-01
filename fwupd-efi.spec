@@ -5,17 +5,19 @@
 Summary:	Firmware update EFI binaries
 Summary(pl.UTF-8):	Binaria EFI do uaktualniania firmware'u
 Name:		fwupd-efi
-Version:	1.3
+Version:	1.4
 Release:	1
 License:	LGPL v2+
 Group:		Base
 Source0:	https://people.freedesktop.org/~hughsient/releases/%{name}-%{version}.tar.xz
-# Source0-md5:	e5502411ed850d18622f4e2d0b0ea1b4
+# Source0-md5:	40e4767a0684d614cc4e02ea24ec1fde
 URL:		https://github.com/fwupd/fwupd-efi
 BuildRequires:	gnu-efi
 BuildRequires:	meson >= 0.53.0
 BuildRequires:	ninja >= 1.5
 %{?with_pesign:BuildRequires:	pesign}
+BuildRequires:	python3 >= 1:3.6
+BuildRequires:	python3-pefile
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires:	fwupd >= 1.6.0
@@ -82,7 +84,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS COMMITMENT MAINTAINERS README.md
+%doc AUTHORS COMMITMENT MAINTAINERS README.md SECURITY.md
 %dir %{_libexecdir}/fwupd
 %dir %{_libexecdir}/fwupd/efi
 %{_libexecdir}/fwupd/efi/fwupd%{efi_arch}.efi
