@@ -1,3 +1,4 @@
+# TODO: genpeimg (from mingw-w64-tools?)
 #
 # Conditional build:
 %bcond_with	pesign	# sign EFI binary (pesign is NFY)
@@ -5,26 +6,27 @@
 Summary:	Firmware update EFI binaries
 Summary(pl.UTF-8):	Binaria EFI do uaktualniania firmware'u
 Name:		fwupd-efi
-Version:	1.4
+Version:	1.5
 Release:	1
 License:	LGPL v2+
 Group:		Base
 Source0:	https://people.freedesktop.org/~hughsient/releases/%{name}-%{version}.tar.xz
-# Source0-md5:	40e4767a0684d614cc4e02ea24ec1fde
+# Source0-md5:	0ad0080dae28a0a72b97237fc692bd22
 URL:		https://github.com/fwupd/fwupd-efi
-BuildRequires:	gnu-efi
-BuildRequires:	meson >= 0.53.0
+BuildRequires:	gnu-efi >= 1:3.0.15
+BuildRequires:	meson >= 0.62.0
 BuildRequires:	ninja >= 1.5
 %{?with_pesign:BuildRequires:	pesign}
 BuildRequires:	python3 >= 1:3.6
 BuildRequires:	python3-pefile
+BuildRequires:	python3-uswid >= 0.4.3
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires:	fwupd >= 1.6.0
-ExclusiveArch:	%{ix86} %{x8664} x32 %{arm} aarch64
+ExclusiveArch:	%{ix86} %{x8664} x32 %{arm} aarch64 loongarch64 riscv64
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		efi_arch	%(echo %{_target_base_arch} | sed -e 's/i386/ia32/;s/x86_64/x64/')
+%define		efi_arch	%(echo %{_target_base_arch} | sed -e 's/i386/ia32/;s/x86_64/x64/;s/aarch64/aa64/')
 
 %define		_enable_debug_packages	0
 
