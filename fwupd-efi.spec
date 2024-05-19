@@ -60,6 +60,7 @@ Plik programistyczny pakietu fwupd-efi.
 
 %build
 %meson build \
+	-Defi-ldsdir=%{_libdir} \
 	-Defi_sbat_distro_id="pld" \
 	-Defi_sbat_distro_summary="PLD Linux" \
 	-Defi_sbat_distro_pkgname="%{name}" \
