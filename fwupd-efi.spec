@@ -60,7 +60,7 @@ Plik programistyczny pakietu fwupd-efi.
 %endif
 
 %build
-%meson build \
+%meson \
 	-Defi-ldsdir=%{_libdir} \
 	-Defi_sbat_distro_id="pld" \
 	-Defi_sbat_distro_summary="PLD Linux" \
@@ -68,12 +68,12 @@ Plik programistyczny pakietu fwupd-efi.
 	-Defi_sbat_distro_version="%{version}" \
 	-Defi_sbat_distro_url="https://pld-linux.org/" \
 
-%ninja_build -C build
+%meson_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%ninja_install -C build
+%meson_install
 
 %if %{with pesign}
 %pesign -s -i $RPM_BUILD_ROOT%{_libexecdir}/fwupd/efi/fwupd%{efi_arch}.efi \
