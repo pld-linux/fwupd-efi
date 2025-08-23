@@ -21,6 +21,7 @@ BuildRequires:	ninja >= 1.5
 BuildRequires:	python3 >= 1:3.6
 BuildRequires:	python3-pefile
 BuildRequires:	python3-uswid >= 0.4.3
+BuildRequires:	rpmbuild(macros) >= 2.042
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires:	fwupd >= 1.6.0
