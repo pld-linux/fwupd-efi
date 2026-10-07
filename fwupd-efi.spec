@@ -6,13 +6,13 @@
 Summary:	Firmware update EFI binaries
 Summary(pl.UTF-8):	Binaria EFI do uaktualniania firmware'u
 Name:		fwupd-efi
-Version:	1.7
+Version:	1.8
 Release:	1
 License:	LGPL v2+
 Group:		Base
 #Source0Download: https://github.com/fwupd/fwupd-efi/releases
 Source0:	https://github.com/fwupd/fwupd-efi/archive/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	25999796ab59a4edebaa8d7d71808c56
+# Source0-md5:	c80839e3de2c9db6cc6b31571f45cc0f
 URL:		https://github.com/fwupd/fwupd-efi
 BuildRequires:	gnu-efi >= 1:3.0.18
 BuildRequires:	meson >= 0.62.0
@@ -68,6 +68,7 @@ Plik programistyczny pakietu fwupd-efi.
 	-Defi_sbat_distro_pkgname="%{name}" \
 	-Defi_sbat_distro_version="%{version}" \
 	-Defi_sbat_distro_url="https://pld-linux.org/" \
+	-Dgenpeimg=disabled
 
 %meson_build
 
